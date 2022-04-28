@@ -24,4 +24,12 @@ jobs:
 
     - name: Build with Gradle
       run: ./gradlew build
+      
+    - name: Build and Push Docker Image
+      uses: mr-smither-excellent/build-push-action@v4
+      with:
+        image: karankundar2/testgithubactions
+        registry: docker.io
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}  
      
